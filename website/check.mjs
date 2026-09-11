@@ -4,8 +4,14 @@ import { docs, protocols, quickstart, helloScript, localManual, VERSION } from '
 
 const root = new URL('./', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
-const cargo = await read('../Cargo.toml');
-assert.equal(VERSION, cargo.match(/^version = "([^"]+)"/m)[1], 'Website version must match the crate');
+// The website can also be checked without the Rust crate checkout.
+const cargo = await read('../Cargo.toml').catch((error) => {
+  if (error.code === 'ENOENT') return null;
+  throw error;
+});
+if (cargo !== null) {
+  assert.equal(VERSION, cargo.match(/^version = "([^"]+)"/m)?.[1], 'Website version must match the crate');
+}
 assert.equal(protocols.length, 12);
 assert.equal(new Set(protocols.map(({ id }) => id)).size, 12);
 assert.equal(new Set(docs.map(({ id }) => id)).size, docs.length);

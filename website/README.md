@@ -44,15 +44,17 @@ search results; Escape closes search or mobile navigation. Each protocol has
 Manual, Rust, and Code Mode tabs. Code is displayed and copied, never executed
 in the browser. The Code Mode examples host **Rhai** scripts in Rust.
 
-Examples target this repository's `rs-utcp` 0.3.2 API. Follow the quick start for
+Examples target the `rs-utcp` 0.3.2 API. Follow the quick start for
 the dependency list and `protoc` requirement. The local example uses Node.js to
 execute `tools/hello.js`; other protocol examples require matching servers.
 The Text transport executes local scripts; `http_stream` is the Rust HTTP
 streaming template type; `StreamResult::next` returns `Result<Option<Value>>`.
 
-`npm run check` validates JSON manual shapes, matching tool names, crate version,
-local links, and agreement between displayed and downloadable quick start files.
-It does not compile Rust or contact example servers.
+`npm run check` validates JSON manual shapes, matching tool names, local links,
+and agreement between displayed and downloadable quick start files. When a root
+`Cargo.toml` is present, it also checks that the website version matches the crate.
+Standalone website checkouts do not require the crate manifest. The check does
+not compile Rust or contact example servers.
 
 DM Sans and IBM Plex Mono load from Google Fonts when available, with system
 font fallbacks. All other website assets and search work locally.
