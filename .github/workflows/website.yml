@@ -3,9 +3,9 @@ name: Website
 on:
   push:
     branches: [main, master]
-    paths: ["website/**", "package.json", "Cargo.toml", ".github/workflows/website.yml"]
+    paths: ["website/**", "package.json", ".github/workflows/website.yml"]
   pull_request:
-    paths: ["website/**", "package.json", "Cargo.toml", ".github/workflows/website.yml"]
+    paths: ["website/**", "package.json", ".github/workflows/website.yml"]
   workflow_dispatch:
 
 permissions:
