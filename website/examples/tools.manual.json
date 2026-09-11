@@ -1,0 +1,40 @@
+{
+  "manual_version": "1.0.0",
+  "utcp_version": "1.0.0",
+  "info": {
+    "title": "local tools",
+    "version": "1.0.0"
+  },
+  "allowed_communication_protocols": [
+    "text"
+  ],
+  "tools": [
+    {
+      "name": "hello",
+      "description": "Return a greeting from a local script.",
+      "inputs": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "outputs": {
+        "type": "object"
+      },
+      "tags": [
+        "text",
+        "demo"
+      ],
+      "tool_call_template": {
+        "call_template_type": "text",
+        "name": "local",
+        "base_path": "./tools"
+      }
+    }
+  ]
+}

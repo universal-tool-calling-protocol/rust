@@ -1,0 +1,13 @@
+{
+  "name": "rs-utcp-website",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node website/serve.mjs",
+    "start": "node website/serve.mjs",
+    "check": "node --check website/app.js && node --check website/data.js && node --check website/build.mjs && node --check website/serve.mjs && node website/check.mjs",
+    "build": "node website/build.mjs",
+    "preview": "node website/serve.mjs --dir dist"
+  }
+}
